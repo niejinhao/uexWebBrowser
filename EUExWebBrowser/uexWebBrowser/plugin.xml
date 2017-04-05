@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<uexplugins>
+    <plugin name="uexWebBrowser">
+    	<method name="init"></method>
+    	<method name="open"></method>
+    	<method name="close"></method>
+    	<method name="goBack"></method>
+    	<method name="canGoBack"></method>
+    	<method name="goForward"></method>
+    	<method name="canGoForward"></method>
+    	<method name="reload"></method>
+    	<method name="loadUrl"></method>
+    	<method name="getTitle"></method>
+    	<method name="evaluateJavascript"></method>
+    </plugin>
+</uexplugins>
