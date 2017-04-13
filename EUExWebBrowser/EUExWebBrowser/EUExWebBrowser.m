@@ -23,6 +23,8 @@
 
 
 #import "EUExWebBrowser.h"
+#import "JSON.h"
+#import "EUtility.h"
 #import <WebKit/WebKit.h>
 
 @interface EUExWebBrowser()
@@ -33,12 +35,15 @@
 @implementation EUExWebBrowser
 
 
-- (instancetype)initWithWebViewEngine:(id<AppCanWebViewEngineObject>)engine{
-    if (self = [super initWithWebViewEngine:engine]) {
+- (instancetype)initWithBrwView:(EBrowserView *)eInBrwView{
+    self = [super initWithBrwView:eInBrwView];
+    if (self) {
         
     }
     return self;
 }
+
+
 
 - (void)clean{
     if (self.webview) {
@@ -55,16 +60,59 @@
 }
 
 
+typedef NSNumber * UEX_BOOL;
+#define UEX_TRUE @YES
+#define UEX_FALSE @NO
+
+
+static NSNumber * numberArg(id x){
+    if ([x isKindOfClass:[NSString class]]) {
+        return @([x floatValue]);
+    }
+    if ([x isKindOfClass:[NSNumber class]]) {
+        return x;
+    }
+    return nil;
+};
+
+static NSString * stringArg(id x){
+    if ([x isKindOfClass:[NSString class]]) {
+        return x;
+    }
+    if ([x isKindOfClass:[NSNumber class]]) {
+        return [x stringValue];
+    }
+    return nil;
+}
+
+
+
 #pragma mark - API
 
 - (void)init:(NSMutableArray *)inArguments{
-    ACArgsUnpack(NSDictionary *info) = inArguments;
-    self.userAgent = stringArg(info[@"userAgent"]);
     
+    if (inArguments.count == 0) {
+        return;
+    }
+    NSDictionary *info = [inArguments[0] JSONValue];
+    if (!info || ![info isKindOfClass:[NSDictionary class]]) {
+        return;
+    }
+    NSString *ua = info[@"userAgent"];
+    if (ua && [ua isKindOfClass:[NSString class]]) {
+        self.userAgent = ua;
+    }
 }
 
 - (void)open:(NSMutableArray *)inArguments{
-    ACArgsUnpack(NSDictionary *info) = inArguments;
+    if (inArguments.count == 0) {
+        return;
+    }
+    NSDictionary *info = [inArguments[0] JSONValue];
+    if (!info || ![info isKindOfClass:[NSDictionary class]]) {
+        return;
+    }
+    
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     NSNumber *x = numberArg(info[@"x"]) ?: @0;
     NSNumber *y = numberArg(info[@"y"]) ?: @0;
@@ -76,7 +124,7 @@
     config.allowsInlineMediaPlayback = YES;
     self.webview = [[WKWebView alloc]initWithFrame:frame configuration:config];
     
-    if (ACSystemVersion() >= 9) {
+    if ([UIDevice currentDevice].systemVersion.floatValue >= 9) {
         self.webview.customUserAgent = self.userAgent;
     }
     NSString *urlString = stringArg(info[@"url"]);
@@ -84,7 +132,7 @@
     if (url) {
         [self.webview loadRequest:[NSURLRequest requestWithURL:url]];
     }
-    [[self.webViewEngine webView] addSubview:self.webview];
+    [EUtility brwView:self.meBrwView addSubview:self.webview];
 }
 
 
@@ -118,7 +166,11 @@
 }
 
 - (void)loadUrl:(NSMutableArray *)inArguments{
-    ACArgsUnpack(NSString *urlString) = inArguments;
+    if(inArguments.count == 0){
+        return;
+    }
+    
+    NSString *urlString = stringArg(inArguments[0]);
     NSURL *url = [NSURL URLWithString:urlString];
     if (url) {
         [self.webview loadRequest:[NSURLRequest requestWithURL:url]];
@@ -126,7 +178,10 @@
 }
 
 - (void)evaluateJavascript:(NSMutableArray *)inArguments{
-    ACArgsUnpack(NSString *js) = inArguments;
+    if(inArguments.count == 0){
+        return;
+    }
+    NSString *js = stringArg(inArguments[0]);
     static NSString *const kJSPrefix = @"javascript:";
     
     if ([js hasPrefix:kJSPrefix]) {

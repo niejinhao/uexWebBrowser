@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		421803F81E94CB1300F82E0F /* EUExWebBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 421803F71E94CB1300F82E0F /* EUExWebBrowser.m */; };
-		421803FA1E94CBDA00F82E0F /* AppCanKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 421803F91E94CBDA00F82E0F /* AppCanKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,9 +23,22 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		42117A4A1E9F0DE200149624 /* ACEBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACEBaseViewController.h; sourceTree = "<group>"; };
+		42117A4B1E9F0DE200149624 /* EUExBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExBase.h; sourceTree = "<group>"; };
+		42117A4C1E9F0DE200149624 /* EUExBaseDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExBaseDefine.h; sourceTree = "<group>"; };
+		42117A4D1E9F0DE200149624 /* EUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUtility.h; sourceTree = "<group>"; };
+		42117A4E1E9F0DE200149624 /* WidgetOneDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetOneDelegate.h; sourceTree = "<group>"; };
+		42117A501E9F0DE200149624 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		42117A511E9F0DE200149624 /* JSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONParser.h; sourceTree = "<group>"; };
+		42117A521E9F0DE200149624 /* MD5Digest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Digest.h; sourceTree = "<group>"; };
+		42117A531E9F0DE200149624 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		42117A541E9F0DE200149624 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		42117A551E9F0DE200149624 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		42117A561E9F0DE200149624 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		42117A571E9F0DE200149624 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		42117A581E9F0DE200149624 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		421803F61E94CB1300F82E0F /* EUExWebBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExWebBrowser.h; sourceTree = "<group>"; };
 		421803F71E94CB1300F82E0F /* EUExWebBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EUExWebBrowser.m; sourceTree = "<group>"; };
-		421803F91E94CBDA00F82E0F /* AppCanKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppCanKit.framework; sourceTree = "<group>"; };
 		424AD04D1C25285300EEC1F8 /* libuexWebBrowser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libuexWebBrowser.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -35,17 +47,45 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				421803FA1E94CBDA00F82E0F /* AppCanKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42117A491E9F0DE200149624 /* engineHeader */ = {
+			isa = PBXGroup;
+			children = (
+				42117A4A1E9F0DE200149624 /* ACEBaseViewController.h */,
+				42117A4B1E9F0DE200149624 /* EUExBase.h */,
+				42117A4C1E9F0DE200149624 /* EUExBaseDefine.h */,
+				42117A4D1E9F0DE200149624 /* EUtility.h */,
+				42117A4E1E9F0DE200149624 /* WidgetOneDelegate.h */,
+			);
+			path = engineHeader;
+			sourceTree = "<group>";
+		};
+		42117A4F1E9F0DE200149624 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				42117A501E9F0DE200149624 /* JSON.h */,
+				42117A511E9F0DE200149624 /* JSONParser.h */,
+				42117A521E9F0DE200149624 /* MD5Digest.h */,
+				42117A531E9F0DE200149624 /* NSObject+SBJSON.h */,
+				42117A541E9F0DE200149624 /* NSString+SBJSON.h */,
+				42117A551E9F0DE200149624 /* SBJSON.h */,
+				42117A561E9F0DE200149624 /* SBJsonBase.h */,
+				42117A571E9F0DE200149624 /* SBJsonParser.h */,
+				42117A581E9F0DE200149624 /* SBJsonWriter.h */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 		421803F51E94C6FF00F82E0F /* EUExWebBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				421803F91E94CBDA00F82E0F /* AppCanKit.framework */,
+				42117A491E9F0DE200149624 /* engineHeader */,
+				42117A4F1E9F0DE200149624 /* JSON */,
 				421803F61E94CB1300F82E0F /* EUExWebBrowser.h */,
 				421803F71E94CB1300F82E0F /* EUExWebBrowser.m */,
 			);
@@ -94,7 +134,7 @@
 		424AD0451C25285300EEC1F8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = AppCan;
 				TargetAttributes = {
 					424AD04C1C25285300EEC1F8 = {
@@ -144,8 +184,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -187,8 +229,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

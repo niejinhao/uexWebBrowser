@@ -23,7 +23,7 @@
 
 
 #import <Foundation/Foundation.h>
-#import <AppCanKit/AppCanKit.h>
+#import "EUExBase.h"
 
 @interface EUExWebBrowser: EUExBase
 
