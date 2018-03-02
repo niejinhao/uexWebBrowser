@@ -70,7 +70,7 @@
     NSNumber *y = numberArg(info[@"y"]) ?: @0;
     NSNumber *width = numberArg(info[@"width"]) ?: @(screenSize.width);
     NSNumber *height = numberArg(info[@"height"]) ?: @(screenSize.height);
-    CGRect frame = CGRectMake(x.floatValue, y.floatValue, width.floatValue, height.floatValue);
+    CGRect frame = CGRectMake(x.floatValue, y.floatValue, width.floatValue, height.floatValue - y.floatValue);
     [self clean];
     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc]init];
     config.allowsInlineMediaPlayback = YES;
